@@ -22,4 +22,4 @@ sudo docker run --net bridge -m 0b \
        --privileged=true \
        --cpu-shares 512 \
        --name galaxy \
-       6d9628135d9b
+       b9633f8348ea

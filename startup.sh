@@ -100,6 +100,8 @@ else
     fi
 fi
 
+ps aux | grep -q [c]ron || cron
+
 # Enable verbose output
 if [ `echo ${GALAXY_LOGGING:-'no'} | tr [:upper:] [:lower:]` = "full" ]
     then
