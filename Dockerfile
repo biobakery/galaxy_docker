@@ -32,11 +32,14 @@ COPY ./run_cron.sh /usr/local/bin/run_cron.sh
 COPY ./run_db_backups.sh /usr/local/bin/run_db_backups.sh
 COPY ./crontab /etc/cron.d/galaxy
 
+RUN cp /etc/bash_completion.d/R /usr/share/bash-completion/completions/R
+
+
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9 && \
     sh -c "echo deb http://archive.linux.duke.edu/cran/bin/linux/ubuntu trusty/ > /etc/apt/sources.list.d/r_cran.list" && \
     apt-get update -qq && \
     apt-get upgrade -y && \
-    apt-get install --no-install-recommends -y python-software-properties software-properties-common \
+    apt-get install --no-install-recommends -o Dpkg::Options::="--force-confnew" -y python-software-properties software-properties-common \
     texlive-binaries libfreetype6-dev bowtie bowtie2 libhdf5-dev \
     r-base-core r-base-dev r-cran-mvtnorm r-cran-multcomp r-cran-sandwich r-cran-th.data r-cran-zoo r-cran-testthat \
     r-cran-vegan r-cran-gam r-cran-gbm r-cran-pscl r-cran-robustbase \
