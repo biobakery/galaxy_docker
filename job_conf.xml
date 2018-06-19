@@ -2,7 +2,7 @@
 <!-- A sample job config that explicitly configures job running the way it is configured by default (if there is no explicit config). -->
 <job_conf>
     <plugins>
-        <plugin id="local" type="runner" load="galaxy.jobs.runners.local:LocalJobRunner" workers="4"/>
+        <plugin id="local" type="runner" load="galaxy.jobs.runners.local:LocalJobRunner" workers="8"/>
     </plugins>
     <handlers>
         <handler id="main"/>
@@ -11,6 +11,6 @@
         <destination id="local" runner="local"/>
     </destinations>
    <limits>
-        <limit type="walltime">01:00:00</limit>
+        <limit type="walltime">00:15:00</limit>
     </limits>
 </job_conf>
