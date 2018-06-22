@@ -12,5 +12,5 @@ if [[ ! -d $logdir ]]; then
 fi
 
 for num in {1..6}; do
-  sudo -u galaxy $script $config -d $days -$num >> $logs/cleanup$num.log
+  sudo -u galaxy $script $config -d $days -$num >> $logdir/cleanup$num.log
 done
