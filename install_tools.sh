@@ -3,18 +3,19 @@ export GALAXY_VIRTUAL_ENV=/galaxy_venv
 source $GALAXY_VIRTUAL_ENV/bin/activate
 
 cd /galaxy-central/tools
-hg clone https://bitbucket.org/biobakery/metaphlan2
-hg clone https://bitbucket.org/biobakery/galaxy_metaphlan2
+git clone https://github.com/biobakery/metaphlan2.git
+git clone https://github.com/biobakery/galaxy_metaphlan2.git
 cp galaxy_metaphlan2/metaphlan2.xml metaphlan2
 
-hg clone https://bitbucket.org/nsegata/graphlan
-hg clone https://bitbucket.org/biobakery/galaxy_graphlan
+git clone https://github.com/biobakery/graphlan.git
+git clone https://github.com/biobakery/galaxy_graphlan.git
 cp -r graphlan/pyphlan /galaxy-central/lib/
 cp -r galaxy_graphlan/* graphlan/
 
 git clone git://github.com/picrust/picrust.git picrust
+git clone https://github.com/biobakery/picrust-cmd.git
 cd picrust && git checkout tags/1.0.0 -b 1.0.0 && cd ..
-hg clone https://bitbucket.org/biobakery/galaxy_picrust
+git clone https://github.com/biobakery/galaxy_picrust
 cp /galaxy-central/tools/galaxy_picrust/*.xml /galaxy-central/tools/picrust
 mkdir -p /galaxy-central/tools/picrust/data /galaxy_venv/local/lib/python2.7/site-packages/picrust/data/
 cd /galaxy_venv/local/lib/python2.7/site-packages/picrust/data/
